@@ -1,6 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `ics_db_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `ics_db_project`;
+-- MySQL dump 10.13  Distrib 8.0.27, for macos11 (x86_64)
 --
--- Host: localhost    Database: ics_db_project
+-- Host: 127.0.0.1    Database: ics_db_project
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -44,7 +46,7 @@ CREATE TABLE `blood_participant` (
 
 LOCK TABLES `blood_participant` WRITE;
 /*!40000 ALTER TABLE `blood_participant` DISABLE KEYS */;
-INSERT INTO `blood_participant` VALUES (1234,'Nawaf','Almalki','O+',80,180,'M','2000-01-01','Riyadh',592786883,'nkmos9z@gmail.com'),(4123,'Ali','Samir','A-',66,176,'M','2007-03-13','Jeddah',589234178,'nkmalki77@gmail.com');
+INSERT INTO `blood_participant` VALUES (1001,'Nawaf','Almalki','O+',80,180,'M','2000-01-01','Riyadh',592786883,'nkmos9z@gmail.com'),(1002,'Ali','Samir','A-',66,176,'M','2007-03-13','Jeddah',589234178,'nkmalki77@gmail.com'),(1003,'Ahmed','Malik','B+',100,190,'M','1995-08-22','Khobar',567876522,'ahmedpopo0@gmail.com'),(1004,'Saad','Khalid','AB-',53,169,'M','2002-02-02','Dammam',546783674,'saad90903@gmail.com'),(1005,'Sarah','Saad','O-',70,176,'F','2000-02-20','Jeddah',538855446,'SarahJ909@gmail.com');
 /*!40000 ALTER TABLE `blood_participant` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-15 18:34:53

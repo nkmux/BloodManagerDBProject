@@ -1,6 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `ics_db_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `ics_db_project`;
+-- MySQL dump 10.13  Distrib 8.0.27, for macos11 (x86_64)
 --
--- Host: localhost    Database: ics_db_project
+-- Host: 127.0.0.1    Database: ics_db_project
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -43,6 +45,7 @@ CREATE TABLE `donates_in` (
 
 LOCK TABLES `donates_in` WRITE;
 /*!40000 ALTER TABLE `donates_in` DISABLE KEYS */;
+INSERT INTO `donates_in` VALUES (3001,1,1001,'2023-12-01','Done'),(3002,2,1002,'2023-12-10','Done');
 /*!40000 ALTER TABLE `donates_in` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-15 18:34:54

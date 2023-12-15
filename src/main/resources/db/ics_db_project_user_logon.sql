@@ -1,6 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `ics_db_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `ics_db_project`;
+-- MySQL dump 10.13  Distrib 8.0.27, for macos11 (x86_64)
 --
--- Host: localhost    Database: ics_db_project
+-- Host: 127.0.0.1    Database: ics_db_project
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -40,7 +42,7 @@ CREATE TABLE `user_logon` (
 
 LOCK TABLES `user_logon` WRITE;
 /*!40000 ALTER TABLE `user_logon` DISABLE KEYS */;
-INSERT INTO `user_logon` VALUES ('Kvvy89:',1000,NULL),('Uvvy8',NULL,1234),('Z{hy7',NULL,4123);
+INSERT INTO `user_logon` VALUES ('Kvvy89:',2001,NULL),('Uvvy8',NULL,1001),('Z{hy7',NULL,1002);
 /*!40000 ALTER TABLE `user_logon` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-15 18:34:49
