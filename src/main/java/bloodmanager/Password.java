@@ -1,7 +1,5 @@
 package bloodmanager;
 
-import java.util.Arrays;
-
 public class Password {
     public static String encrypt(String password) {
         StringBuilder encrypt = new StringBuilder();
