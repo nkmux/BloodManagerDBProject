@@ -54,6 +54,10 @@ public class LoggerController {
     
     @FXML
     private void onNurse_Click() throws IOException {
+        // FOR TESTING
+        idTextField.setText("1000");
+        passwordField.setText("Door123");
+
         if (idTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             errorLabel.setText("ERROR; ENTER ALL INFORMATION.");
             return;

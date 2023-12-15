@@ -18,6 +18,12 @@ public class MainController implements Initializable {
     private ImageView goBackButton, profileButton;
     @FXML
     private HBox buttonsHBox;
+    @FXML
+    private VBox patientsVBox;
+    @FXML
+    private TextField searchField;
+    @FXML
+    private Button patientsButton, addPatient, deletePatient, updatePatient;
 
     public static User user;
 
@@ -36,6 +42,14 @@ public class MainController implements Initializable {
                 buttonsHBox.setVisible(false);
         }
         helloLabel.setText("Hi, " + user.getName() + "!");
+    }
+
+    @FXML
+    private void patientsPage_Click() {
+        if (!patientsVBox.isVisible())
+            patientsVBox.setVisible(true);
+        else
+            patientsVBox.setVisible(false);
     }
 
     @FXML
