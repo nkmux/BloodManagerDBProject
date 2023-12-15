@@ -80,7 +80,7 @@
             <Image url="@../img/profileIcon.jpg" />
          </image>
       </ImageView>
-      <VBox fx:id="patientsVBox" alignment="CENTER_LEFT" layoutX="14.0" layoutY="150.0" prefHeight="480.0" prefWidth="1050.0" spacing="20.0">
+      <VBox fx:id="patientsVBox" alignment="CENTER_LEFT" layoutX="14.0" layoutY="150.0" prefHeight="480.0" prefWidth="1050.0" spacing="20.0" visible="false">
          <children>
             <Label text="Patients:">
                <font>

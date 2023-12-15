@@ -21,24 +21,24 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="110.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1080.0" />
       <Label alignment="CENTER" layoutY="1.0" prefHeight="110.0" prefWidth="1080.0" text="B   L   O   O   D       C   L   I   N   I   C" textFill="WHITE">
          <font>
-            <Font name="Segoe UI Bold" size="35.0" />
+            <Font name="Arial Bold" size="35.0" />
          </font>
       </Label>
       <Label layoutX="109.0" layoutY="514.0" text="ID:">
          <font>
-            <Font name="Segoe UI" size="13.0" />
+            <Font name="Arial" size="13.0" />
          </font>
       </Label>
       <Label layoutX="107.0" layoutY="560.0" text="Password:">
          <font>
-            <Font name="Segoe UI" size="13.0" />
+            <Font name="Arial" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="idTextField" layoutX="107.0" layoutY="531.0" prefHeight="25.0" prefWidth="220.0" promptText="ID" />
-      <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="577.0" prefHeight="25.0" prefWidth="220.0" promptText="Password" />
+      <PasswordField fx:id="passwordField" layoutX="108.0" layoutY="576.0" prefHeight="25.0" prefWidth="220.0" promptText="Password" />
       <Button fx:id="logInButton" contentDisplay="CENTER" layoutX="107.0" layoutY="613.0" mnemonicParsing="false" onAction="#onPatient_Click" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #00573f;" text="Log In" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Segoe UI" size="14.0" />
+            <Font name="Arial" size="13.0" />
          </font>
       </Button>
       <Button fx:id="guestButton" layoutX="206.0" layoutY="613.0" mnemonicParsing="false" onAction="#onGuest_Click" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #00573f;" text="Enter As Guest" textFill="WHITE">
@@ -52,12 +52,12 @@
       </ImageView>
       <Label fx:id="errorLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="484.0" prefHeight="51.0" prefWidth="220.0" textAlignment="CENTER" textFill="RED">
          <font>
-            <Font name="Segoe UI Historic" size="11.0" />
+            <Font name="Arial" size="11.0" />
          </font>
       </Label>
       <Button fx:id="nurseLogInButton" contentDisplay="CENTER" layoutX="107.0" layoutY="654.0" mnemonicParsing="false" onAction="#onNurse_Click" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: darkgray;" text="Log In As Nurse" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Segoe UI" size="14.0" />
+            <Font name="Arial" size="15.0" />
          </font>
       </Button>
    </children>
