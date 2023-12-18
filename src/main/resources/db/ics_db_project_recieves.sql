@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `ics_db_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `ics_db_project`;
--- MySQL dump 10.13  Distrib 8.0.27, for macos11 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: ics_db_project
+-- Host: localhost    Database: ics_db_project
 -- ------------------------------------------------------
 -- Server version	8.0.35
 
@@ -28,13 +26,15 @@ CREATE TABLE `recieves` (
   `Blood_id` int NOT NULL,
   `Nssn` int NOT NULL,
   `Rssn` int NOT NULL,
-  `Date_of_Retrieval` date NOT NULL,
+  `Date_of_Retrieval` date DEFAULT NULL,
+  `Status_of_Retrieval` varchar(45) NOT NULL,
+  `Fee` int NOT NULL,
   PRIMARY KEY (`Blood_id`,`Nssn`,`Rssn`),
   KEY `recipient_idx` (`Rssn`),
   KEY `nurse_idx` (`Nssn`),
-  CONSTRAINT `blood` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`),
-  CONSTRAINT `nurseID` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`),
-  CONSTRAINT `recipient` FOREIGN KEY (`Rssn`) REFERENCES `recipient` (`Pssn`)
+  CONSTRAINT `blood` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `nurseSSN` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `recipient` FOREIGN KEY (`Rssn`) REFERENCES `recipient` (`Pssn`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,7 +44,6 @@ CREATE TABLE `recieves` (
 
 LOCK TABLES `recieves` WRITE;
 /*!40000 ALTER TABLE `recieves` DISABLE KEYS */;
-INSERT INTO `recieves` VALUES (1,2001,1004,'2023-12-01'),(2,2001,1005,'2023-12-10');
 /*!40000 ALTER TABLE `recieves` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 18:34:54
+-- Dump completed on 2023-12-18 14:39:25

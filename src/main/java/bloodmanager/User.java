@@ -1,16 +1,18 @@
 package bloodmanager;
 
 public class User {
-    private Privilege privilege;
-    private String name;
+    private final int id;
+    private final Privilege privilege;
+    private final String name;
     
-    public User(String name, Privilege privilege) {
+    public User(int id, String name, Privilege privilege) {
+        this.id = id;
         this.name = name;
         this.privilege = privilege;
     }
 
-    public void setPrivilege(Privilege priv) {
-        this.privilege = priv;
+    public int getId() {
+        return id;
     }
 
     public Privilege getPrivilege() {

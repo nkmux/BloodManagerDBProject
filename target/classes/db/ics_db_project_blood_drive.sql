@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `blood_drive`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `blood_drive` (
-  `Drive_id` int NOT NULL,
+  `Drive_id` int NOT NULL AUTO_INCREMENT,
   `Starting_date` date NOT NULL,
   `Ending_date` date NOT NULL,
   `Location` varchar(45) NOT NULL,
   PRIMARY KEY (`Drive_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3040 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `blood_drive` (
 
 LOCK TABLES `blood_drive` WRITE;
 /*!40000 ALTER TABLE `blood_drive` DISABLE KEYS */;
+INSERT INTO `blood_drive` VALUES (3035,'2023-12-18','2023-12-25','Taif'),(3036,'2023-12-18','2023-12-25','Riyadh'),(3037,'2023-12-18','2023-12-25','Jeddah'),(3038,'2023-12-18','2023-12-25','Hail'),(3039,'2023-12-18','2023-12-25','Khobar');
 /*!40000 ALTER TABLE `blood_drive` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-18 14:39:25

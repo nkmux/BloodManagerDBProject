@@ -22,8 +22,8 @@ public class LoggerController {
         errorLabel.setText("ERROR; ENTER ALL INFORMATION.");
             return;
         }
-        String userName = "";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");){
+        String userName;
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1")){
             PreparedStatement st = conn.prepareStatement("SELECT * FROM user_logon " +
                                                               "WHERE Pssn = ?");
             st.setString(1, idTextField.getText());
@@ -48,22 +48,19 @@ public class LoggerController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        MainController.setUser(new User(userName, Privilege.Patient));
+        MainController.setUser(new User(Integer.parseInt(idTextField.getText()), userName, Privilege.Patient));
         BloodManager.setRoot("main");
     }
     
     @FXML
     private void onNurse_Click() throws IOException {
-        // FOR TESTING
-        idTextField.setText("1000");
-        passwordField.setText("Door123");
-
         if (idTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             errorLabel.setText("ERROR; ENTER ALL INFORMATION.");
             return;
         }
-        String userName = "";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");){
+
+        String userName;
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1")){
             PreparedStatement st = conn.prepareStatement("SELECT * FROM user_logon " +
                     "WHERE Nssn = ?");
             st.setString(1, idTextField.getText());
@@ -88,13 +85,13 @@ public class LoggerController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        MainController.setUser(new User(userName, Privilege.Nurse));
+        MainController.setUser(new User(Integer.parseInt(idTextField.getText()), userName, Privilege.Nurse));
         BloodManager.setRoot("main");
     }
 
     @FXML
     private void onGuest_Click() throws IOException {
-        MainController.setUser(new User("Guest", Privilege.Guest));
+        MainController.setUser(new User(0, "Guest", Privilege.Guest));
         BloodManager.setRoot("main");
         
     }

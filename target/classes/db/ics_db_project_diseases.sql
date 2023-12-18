@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `diseases`;
 CREATE TABLE `diseases` (
   `Pssn` int NOT NULL,
   `Disease` varchar(45) NOT NULL,
-  PRIMARY KEY (`Pssn`),
+  PRIMARY KEY (`Pssn`,`Disease`),
   CONSTRAINT `Ssn` FOREIGN KEY (`Pssn`) REFERENCES `blood_participant` (`SSN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,6 +36,7 @@ CREATE TABLE `diseases` (
 
 LOCK TABLES `diseases` WRITE;
 /*!40000 ALTER TABLE `diseases` DISABLE KEYS */;
+INSERT INTO `diseases` VALUES (1001793416,'Blood Pressure');
 /*!40000 ALTER TABLE `diseases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:01
+-- Dump completed on 2023-12-18 14:39:24

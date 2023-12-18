@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `blood_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `blood_product` (
-  `Blood_id` int NOT NULL,
+  `Blood_id` int NOT NULL AUTO_INCREMENT,
   `Blood_type` varchar(3) NOT NULL,
   `Expiration_date` date NOT NULL,
-  `Quantity` int NOT NULL,
+  `Quantity` decimal(33,2) NOT NULL,
   PRIMARY KEY (`Blood_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-18 14:39:25

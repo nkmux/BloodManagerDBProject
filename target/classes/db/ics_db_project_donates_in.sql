@@ -28,11 +28,11 @@ CREATE TABLE `donates_in` (
   `Dssn` int NOT NULL,
   `Date_of_Donation` date NOT NULL,
   `Status_of_Donation` varchar(45) NOT NULL,
-  PRIMARY KEY (`Drive_id`,`Blood_id`,`Dssn`),
   KEY `SSN_idx` (`Dssn`),
-  KEY `BLOODID_idx` (`Blood_id`),
-  CONSTRAINT `BLOODID` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `DRIVEID` FOREIGN KEY (`Drive_id`) REFERENCES `blood_drive` (`Drive_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `DriveID_idx` (`Drive_id`),
+  KEY `bloodId_idx` (`Blood_id`),
+  CONSTRAINT `bloodId` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `DriveID` FOREIGN KEY (`Drive_id`) REFERENCES `blood_drive` (`Drive_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `Dssn` FOREIGN KEY (`Dssn`) REFERENCES `donor` (`Pssn`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:00
+-- Dump completed on 2023-12-18 14:39:24

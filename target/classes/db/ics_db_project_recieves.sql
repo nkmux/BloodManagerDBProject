@@ -26,13 +26,15 @@ CREATE TABLE `recieves` (
   `Blood_id` int NOT NULL,
   `Nssn` int NOT NULL,
   `Rssn` int NOT NULL,
-  `Date_of_Retrieval` date NOT NULL,
+  `Date_of_Retrieval` date DEFAULT NULL,
+  `Status_of_Retrieval` varchar(45) NOT NULL,
+  `Fee` int NOT NULL,
   PRIMARY KEY (`Blood_id`,`Nssn`,`Rssn`),
   KEY `recipient_idx` (`Rssn`),
   KEY `nurse_idx` (`Nssn`),
-  CONSTRAINT `blood` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`),
-  CONSTRAINT `nurseID` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`),
-  CONSTRAINT `recipient` FOREIGN KEY (`Rssn`) REFERENCES `recipient` (`Pssn`)
+  CONSTRAINT `blood` FOREIGN KEY (`Blood_id`) REFERENCES `blood_product` (`Blood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `nurseSSN` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `recipient` FOREIGN KEY (`Rssn`) REFERENCES `recipient` (`Pssn`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:56:59
+-- Dump completed on 2023-12-18 14:39:25

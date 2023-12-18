@@ -27,8 +27,8 @@ CREATE TABLE `organized_by` (
   `Nssn` int NOT NULL,
   PRIMARY KEY (`Drive_id`,`Nssn`),
   KEY `nurse_idx` (`Nssn`),
-  CONSTRAINT `drive` FOREIGN KEY (`Drive_id`) REFERENCES `blood_drive` (`Drive_id`),
-  CONSTRAINT `nurse` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`)
+  CONSTRAINT `drive` FOREIGN KEY (`Drive_id`) REFERENCES `blood_drive` (`Drive_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `nurse` FOREIGN KEY (`Nssn`) REFERENCES `nurse` (`Nssn`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,6 +38,7 @@ CREATE TABLE `organized_by` (
 
 LOCK TABLES `organized_by` WRITE;
 /*!40000 ALTER TABLE `organized_by` DISABLE KEYS */;
+INSERT INTO `organized_by` VALUES (3035,2001),(3036,2001),(3037,2001),(3038,2001),(3039,2001);
 /*!40000 ALTER TABLE `organized_by` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:01
+-- Dump completed on 2023-12-18 14:39:24

@@ -26,7 +26,7 @@ CREATE TABLE `recipient` (
   `Pssn` int NOT NULL,
   `Urgency_level` varchar(45) NOT NULL,
   PRIMARY KEY (`Pssn`),
-  CONSTRAINT `patientID` FOREIGN KEY (`Pssn`) REFERENCES `blood_participant` (`SSN`)
+  CONSTRAINT `patientID` FOREIGN KEY (`Pssn`) REFERENCES `blood_participant` (`SSN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 13:57:01
+-- Dump completed on 2023-12-18 14:39:25

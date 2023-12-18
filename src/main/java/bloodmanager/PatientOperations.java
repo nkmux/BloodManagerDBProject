@@ -7,65 +7,86 @@ import java.sql.*;
 
 public class PatientOperations {
 
-    public static void insertPatient(int ssn, String fname, String lname, String bloodType,
-                                     int weight, int height, String gender, Date birthDate, int phone, String email, String password) throws SQLException {
+    public static void insertPatient(Patient patient, String password) throws SQLException {
 
         String sql = "INSERT INTO `ics_db_project`.`blood_participant` " +
                 "(`SSN`,`Fname`,`Lname`,`Blood_type`,`Weight`,`Height`,`Gender`,`Birth_date`,`Address`,`Phone`,`Email`) " +
-                        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");) {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, ssn);
-            st.setString(2, fname);
-            st.setString(3, lname);
-            st.setString(4, bloodType);
-            st.setInt(5, weight);
-            st.setInt(6, height);
-            st.setString(7, gender);
-            st.setDate(8, birthDate);
-            st.setInt(9, phone);
-            st.setString(10, email);
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");
+        PreparedStatement st = conn.prepareStatement(sql);
+        st.setInt(1, patient.getSsn());
+        st.setString(2, patient.getFname());
+        st.setString(3, patient.getLname());
+        st.setString(4, patient.getBloodType());
+        st.setInt(5, patient.getWeight());
+        st.setInt(6, patient.getHeight());
+        st.setString(7, patient.getGender());
+        st.setDate(8, patient.getBirthDate());
+        st.setString(9, patient.getAddress());
+        st.setInt(10, patient.getPhone());
+        st.setString(11, patient.getEmail());
+        st.execute();
 
-            st.executeQuery();
 
+        // QUERY FOR PASSWORD
+        sql = "INSERT INTO `ics_db_project`.`user_logon`\n" +
+                "(`Encrypted_Password`, `Pssn`)\n" +
+                "VALUES (?, ?);";
+        st = conn.prepareStatement(sql);
+        String encrypt = Password.encrypt(password);
+        st.setString(1, encrypt);
+        st.setInt(2, patient.getSsn());
+        st.execute();
 
-            // QUERY FOR PASSWORD
-            sql = "INSERT INTO `ics_db_project`.`user_logon` " +
-                    "(`Encrypted_Password`,`Pssn`) VALUES(?,?);";
-            st = conn.prepareStatement(sql);
-            st.setString(1, Password.encrypt(password));
-            st.setInt(2, ssn);
-            st.executeQuery();
-        } catch (SQLException ex) {
-            ex.fillInStackTrace();
-        }
+        conn.close();
     }
 
-    public static void updatePatientInfo() {
+    public static void updatePatientInfo(Patient patient) throws SQLException {
+        String sql = "UPDATE `ics_db_project`.`blood_participant` " +
+                "SET " +
+                "`Fname` = ?,`Lname` = ?, `Blood_type` = ?, " +
+                "`Weight` = ?, `Height` = ?, `Gender` = ?, " +
+                "`Birth_date` = ?, `Address` = ?, `Phone` = ?, " +
+                "`Email` = ? " +
+                "WHERE `SSN` = ?; ";
 
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");
+        PreparedStatement st = conn.prepareStatement(sql);
+        st.setInt(11, patient.getSsn());
+        st.setString(1, patient.getFname());
+        st.setString(2, patient.getLname());
+        st.setString(3, patient.getBloodType());
+        st.setInt(4, patient.getWeight());
+        st.setInt(5, patient.getHeight());
+        st.setString(6, patient.getGender());
+        st.setDate(7, patient.getBirthDate());
+        st.setString(8, patient.getAddress());
+        st.setInt(9, patient.getPhone());
+        st.setString(10, patient.getEmail());
+        st.executeUpdate();
     }
 
     public static void deletePatient(int ssn) {
         String sql = "DELETE FROM `ics_db_project`.`blood_participant`\n" +
                 "WHERE ssn = ?;";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1")) {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, ssn);
-            st.executeQuery();
+            st.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static ObservableList<Patient> getPatients(String search) {
-        String sql = "";
+        String sql;
         if (search.equals("*"))
             sql = "SELECT * FROM `ics_db_project`.`blood_participant`";
         else
             sql = "SELECT * FROM `ics_db_project`.`blood_participant` WHERE Ssn = " + search + ";";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1");) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ics_db_project", "root", "Nawaf1")) {
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             ObservableList<Patient> patientsList = FXCollections.observableArrayList();

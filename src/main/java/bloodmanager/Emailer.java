@@ -11,10 +11,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Emailer {
-    public static void sendEmail() {
-        // Recipient's email ID needs to be mentioned.
-        String to = "s202023240@kfupm.edu.sa";
-        
+    public static void sendEmail(String to, String title, String text) {
         // Sender's email ID needs to be mentioned
         String from = "bloodclinic123@gmail.com";
         // Assuming you are sending email from through gmails smtp
@@ -50,10 +47,10 @@ public class Emailer {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("CONFIRMATION MESSAGE");
+            message.setSubject(title);
 
             // Now set the actual message
-            message.setText("You have been registred into " + ". Good LucK :)");
+            message.setText(text);
 
             System.out.println("sending...");
             // Send message
